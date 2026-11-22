@@ -1,0 +1,53 @@
+/* =====================================================================
+   FARMATE デザイントークン（ロゴ FARMATE.png から抽出）
+   ・色はここだけで定義し、画面側は var(--xxx) で参照する（直書き禁止）
+   ・ロゴの色そのままだと白背景で文字が読めないものがあるため、
+     「ロゴ色（装飾用）」と「文字・ボタン用（コントラスト確保）」を分けている
+   ===================================================================== */
+:root {
+  /* ---- ロゴ色（装飾・アイコン・見出しの飾り用。文字色には使わない）---- */
+  --logo-green:        #78B838;  /* 「FARMATE」の文字の基調色 */
+  --logo-green-light:  #A8E868;  /* 文字のハイライト */
+  --logo-green-dark:   #188848;  /* アイコン下部の濃い緑 */
+  --logo-blue:         #0898D8;  /* アイコンの青い人（学生） */
+  --logo-orange:       #F87808;  /* アイコンのオレンジの人（農家） */
+
+  /* ---- 主要色（文字・ボタン用） ---- */
+  --color-primary:        #188848;  /* ボタン・リンク。白文字とのコントラスト 4.5:1 */
+  --color-primary-hover:  #146B38;  /* ホバー時。白文字とのコントラスト 6.6:1 */
+  --color-on-primary:     #FFFFFF;
+  --color-brand:          var(--logo-green);   /* 装飾のみ */
+
+  /* ---- 役割の色（学生＝青、農家＝オレンジ。ロゴの2人に対応） ---- */
+  --color-student:        #0B6FA6;  /* 青の文字・枠線。白背景で 5.5:1 */
+  --color-student-bg:     #E3F3FB;
+  --color-farmer:         #B84E00;  /* オレンジの文字・枠線。白背景で 5.1:1 */
+  --color-farmer-bg:      #FFF1E2;
+  --color-farmer-solid:   var(--logo-orange);  /* 塗りつぶし用。上に置く文字は --color-text */
+
+  /* ---- 背景・面 ---- */
+  --color-bg:             #F7FAF2;  /* ページ背景（ごく薄い緑み） */
+  --color-surface:        #FFFFFF;  /* カード */
+  --color-tint:           #EAF6DC;  /* 選択中・強調の背景 */
+  --color-border:         #D9E5CC;
+
+  /* ---- 文字 ---- */
+  --color-text:           #1F2A1A;  /* 本文。白背景で 14.9:1 */
+  --color-text-muted:     #5B6B52;  /* 補足。白背景で 5.7:1 */
+
+  /* ---- 状態 ---- */
+  --color-success:        #146B38;
+  --color-warning:        #B84E00;
+  --color-danger:         #B3261E;
+  --color-danger-bg:      #FDECEA;
+
+  /* ---- 形・影 ---- */
+  --radius-sm: 8px;
+  --radius-md: 14px;        /* ロゴの丸みに合わせて大きめ */
+  --radius-pill: 999px;
+  --shadow-card: 0 1px 2px rgba(31, 42, 26, 0.06), 0 4px 12px rgba(31, 42, 26, 0.06);
+
+  /* ---- フォント（ファイルは @fontsource で同梱。外部CDNは使わない） ---- */
+  --font-heading: "Montserrat", "Noto Sans JP", system-ui, sans-serif;  /* 太字800。ロゴの雰囲気 */
+  --font-body:    "Noto Sans JP", system-ui, sans-serif;
+}
