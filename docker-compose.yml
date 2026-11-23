@@ -1,0 +1,19 @@
+services:
+  app:
+    build:
+      context: .
+      args:
+        # ブラウザ用の値はビルド時にバンドルへ埋め込まれる
+        NEXT_PUBLIC_SUPABASE_URL: ${NEXT_PUBLIC_SUPABASE_URL:-http://host.docker.internal:54321}
+        NEXT_PUBLIC_SUPABASE_ANON_KEY: ${NEXT_PUBLIC_SUPABASE_ANON_KEY:-}
+    environment:
+      NODE_ENV: production
+      NEXT_PUBLIC_SUPABASE_URL: ${NEXT_PUBLIC_SUPABASE_URL:-http://host.docker.internal:54321}
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: ${NEXT_PUBLIC_SUPABASE_ANON_KEY:-}
+      # サーバー側（Route Handler）だけで使う。ブラウザには渡らない
+      SUPABASE_SERVICE_ROLE_KEY: ${SUPABASE_SERVICE_ROLE_KEY:-}
+    ports:
+      - "3000:3000"
+    # Linux でも host.docker.internal がホストの Supabase を指すようにする
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
